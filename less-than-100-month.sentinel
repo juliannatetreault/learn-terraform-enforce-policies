@@ -1,4 +1,5 @@
 import "tfrun"
+import "tfplan"
 import "decimal"
 import "version"
 
