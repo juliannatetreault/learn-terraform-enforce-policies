@@ -1,8 +1,13 @@
 import "tfrun"
 import "decimal"
+import "version"
 
 delta_monthly_cost = decimal.new(tfrun.cost_estimate.delta_monthly_cost)
 
 main = rule {
     delta_monthly_cost.greater_than(100)
+}
+
+secondary = rule {
+  version.new(tfplan.terraform_version).greater_than("2.0.0")
 }
