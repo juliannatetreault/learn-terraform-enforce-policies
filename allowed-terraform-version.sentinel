@@ -1,9 +1,8 @@
-import "tfplan"
-import "version"
+import "tfrun"
+import "decimal"
 
-# This regular expression checks whether the Terraform version used for the plan is 0.14+, 0.15+, or 1.0+
+delta_monthly_cost = decimal.new(tfrun.cost_estimate.delta_monthly_cost)
 
 main = rule {
-  version.new(tfplan.terraform_version).greater_than("1.1.0")
+    delta_monthly_cost.less_than(100)
 }
-
